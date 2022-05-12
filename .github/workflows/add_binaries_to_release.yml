@@ -8,6 +8,8 @@ permissions:
   contents: read
 
 jobs:
+  run_if:
+    if:  startsWith(github.event.release.tag_name, 'docker-tools-')
   build:
     permissions:
       contents: write # for actions/upload-release-asset to upload release asset
