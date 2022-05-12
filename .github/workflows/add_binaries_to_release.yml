@@ -41,8 +41,7 @@ jobs:
       - name: Build binary
         run: |
           /tmp/bazelisk build --platforms=@io_bazel_rules_go//go/toolchain:${{ matrix.os }}_${{ matrix.cpu }} container/go/cmd/${{ matrix.application }}:${{ matrix.application }}
-          echo "Built!"
-          ls -lR
+          shasum -a 256 bazel-bin/container/go/cmd/${{ matrix.application }}/${{ matrix.application }}_/${{ matrix.application }} | awk '{print $1}' > /tmp/output.sha256
 
       - name: Upload binary as release asset
         uses: actions/upload-release-asset@v1
@@ -53,3 +52,13 @@ jobs:
           asset_path: bazel-bin/container/go/cmd/${{ matrix.application }}/${{ matrix.application }}_/${{ matrix.application }}
           asset_name: ${{ matrix.os }}-${{ matrix.cpu }}_${{ matrix.application }}
           asset_content_type: ${{ matrix.executable_mime }}
+
+      - name: Upload binary sha as release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: /tmp/output.sha256
+          asset_name: ${{ matrix.os }}-${{ matrix.cpu }}_${{ matrix.application }}.sha256
+          asset_content_type: "text/plain"
