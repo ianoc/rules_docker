@@ -32,68 +32,69 @@ def repositories():
 
     # These are the binaries built from this repo that we distribute via github actions
     # GO_BINARIES_AUTO_GEN_REPLACE_SECTION_START
+
     if "go_puller_linux_amd64" not in excludes:
         http_file(
             name = "go_puller_linux_amd64",
             executable = True,
-            sha256 = "08b8963cce9234f57055bafc7cadd1624cdce3c5990048cea1df453d7d288bc6",
-            urls = [("https://storage.googleapis.com/rules_docker/" + RULES_DOCKER_GO_BINARY_RELEASE + "/puller-linux-amd64")],
+            sha256 = "55c64dfaaa71fcb0b7f3b4d601a7cfc3458e26b48914ed2ddde097d52ebb2b76",
+            urls = ["https://github.com/ianoc/rules_docker/releases/download/docker-tools-v2/linux-amd64_puller],
         )
 
     if "go_puller_linux_arm64" not in excludes:
         http_file(
             name = "go_puller_linux_arm64",
             executable = True,
-            sha256 = "912ee7c469b3e4bf15ba5d1f0ee500e7ec6724518862703fa8b09e4d58ce3ee6",
-            urls = [("https://storage.googleapis.com/rules_docker/" + RULES_DOCKER_GO_BINARY_RELEASE + "/puller-linux-arm64")],
+            sha256 = "66714ee35fb09c4f8ac370cb211aac01a5521bd03ccb15a168c81b50794b02f3",
+            urls = ["https://github.com/ianoc/rules_docker/releases/download/docker-tools-v2/linux-arm64_puller],
         )
 
     if "go_puller_linux_s390x" not in excludes:
         http_file(
             name = "go_puller_linux_s390x",
             executable = True,
-            sha256 = "a5527b7b3b4a266e4680a4ad8939429665d4173f26b35d5d317385134369e438",
-            urls = [("https://storage.googleapis.com/rules_docker/" + RULES_DOCKER_GO_BINARY_RELEASE + "/puller-linux-s390x")],
+            sha256 = "3877148328fceb59d069ed5ce0669e004d97895587ff96e2e5f0a6d7aa6f46e0",
+            urls = ["https://github.com/ianoc/rules_docker/releases/download/docker-tools-v2/linux-s390x_puller],
         )
 
     if "go_puller_darwin" not in excludes:
         http_file(
             name = "go_puller_darwin",
             executable = True,
-            sha256 = "4855c4f5927f8fb0f885510ab3e2a166d5fa7cde765fbe9aec97dc6b2761bb22",
-            urls = [("https://storage.googleapis.com/rules_docker/" + RULES_DOCKER_GO_BINARY_RELEASE + "/puller-darwin-amd64")],
+            sha256 = "f56363694d2da8cdf353a6f549b9919c7b4c556b596ff6bdb5828934555ac7d8",
+            urls = ["https://github.com/ianoc/rules_docker/releases/download/docker-tools-v2/darwin-amd64_puller],
         )
 
     if "loader_linux_amd64" not in excludes:
         http_file(
             name = "loader_linux_amd64",
             executable = True,
-            sha256 = "5e5ada66beff07f9188bdc1f99c3fa37c407fc0048cd78b9c2047e9c5516f20b",
-            urls = [("https://storage.googleapis.com/rules_docker/" + RULES_DOCKER_GO_BINARY_RELEASE + "/loader-linux-amd64")],
+            sha256 = "455cbef406472176ab9d0f6ec2f96e8d444c71a6bcf99d0166f2374f2dd32f90",
+            urls = ["https://github.com/ianoc/rules_docker/releases/download/docker-tools-v2/linux-amd64_loader],
         )
 
     if "loader_linux_arm64" not in excludes:
         http_file(
             name = "loader_linux_arm64",
             executable = True,
-            sha256 = "a80966d17b25dbc9313e9fc1cae74ded5916fa64dba0d33438c8adad338b44d3",
-            urls = [("https://storage.googleapis.com/rules_docker/" + RULES_DOCKER_GO_BINARY_RELEASE + "/loader-linux-arm64")],
+            sha256 = "e2584997e64041ada61b949d49a1bbed97d6925548a64943a8f50735a5fa3d68",
+            urls = ["https://github.com/ianoc/rules_docker/releases/download/docker-tools-v2/linux-arm64_loader],
         )
 
     if "loader_linux_s390x" not in excludes:
         http_file(
             name = "loader_linux_s390x",
             executable = True,
-            sha256 = "0c0ebc3e0a502542547a38b51f4686a049897eeb4cbc0e2f07fc25276c57866f",
-            urls = [("https://storage.googleapis.com/rules_docker/" + RULES_DOCKER_GO_BINARY_RELEASE + "/loader-linux-s390x")],
+            sha256 = "6cd8301120915a70e6b5209950c0dda523175ae6a4414fadfc9cf5ea03b4cc04",
+            urls = ["https://github.com/ianoc/rules_docker/releases/download/docker-tools-v2/linux-s390x_loader],
         )
 
     if "loader_darwin" not in excludes:
         http_file(
             name = "loader_darwin",
             executable = True,
-            sha256 = "8c9986b2b506febbff737090d9ec485cec1376c52789747573521a85194341c1",
-            urls = [("https://storage.googleapis.com/rules_docker/" + RULES_DOCKER_GO_BINARY_RELEASE + "/loader-darwin-amd64")],
+            sha256 = "600fdad4d5d440c3ac93b1bf1e5180217abe665b98094bfc7b50f3c3bf10ba6c",
+            urls = ["https://github.com/ianoc/rules_docker/releases/download/docker-tools-v2/darwin-amd64_loader],
         )
     # GO_BINARIES_AUTO_GEN_REPLACE_SECTION_END
     if "containerregistry" not in excludes:
