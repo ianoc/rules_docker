@@ -34,6 +34,7 @@ jobs:
       - name: Install dependencies
         run: |
           curl -o /tmp/bazelisk https://github.com/bazelbuild/bazelisk/releases/download/v1.11.0/bazelisk-linux-amd64
+          chmod +x /tmp/bazelisk
 
       - name: Build binary
         run: |
