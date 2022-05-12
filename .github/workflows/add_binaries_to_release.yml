@@ -49,6 +49,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: bazel-bin/container/go/cmd/${{ matrix.application }}_/${{ matrix.application }}
+          asset_path: bazel-bin/container/go/cmd/{{ matrix.application }}/${{ matrix.application }}_/${{ matrix.application }}
           asset_name: ${{ matrix.os }}-${{ matrix.cpu }}_${{ matrix.application }}
           asset_content_type: ${{ matrix.executable_mime }}
