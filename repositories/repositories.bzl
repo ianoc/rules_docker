@@ -25,13 +25,13 @@ load(
 
 # The release of the github.com/google/containerregistry to consume.
 CONTAINERREGISTRY_RELEASE = "v0.0.38"
-RULES_DOCKER_GO_BINARY_RELEASE = "aad94363e63d31d574cf701df484b3e8b868a96a"
 
 def repositories():
     """Download dependencies of container rules."""
     excludes = native.existing_rules().keys()
 
-    # Go binaries.
+    # These are the binaries built from this repo that we distribute via github actions
+    # GO_BINARIES_AUTO_GEN_REPLACE_SECTION_START
     if "go_puller_linux_amd64" not in excludes:
         http_file(
             name = "go_puller_linux_amd64",
@@ -95,7 +95,7 @@ def repositories():
             sha256 = "8c9986b2b506febbff737090d9ec485cec1376c52789747573521a85194341c1",
             urls = [("https://storage.googleapis.com/rules_docker/" + RULES_DOCKER_GO_BINARY_RELEASE + "/loader-darwin-amd64")],
         )
-
+    # GO_BINARIES_AUTO_GEN_REPLACE_SECTION_END
     if "containerregistry" not in excludes:
         http_archive(
             name = "containerregistry",
