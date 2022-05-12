@@ -35,10 +35,11 @@ jobs:
         run: |
           curl -o /tmp/bazelisk https://github.com/bazelbuild/bazelisk/releases/download/v1.11.0/bazelisk-linux-amd64
           chmod +x /tmp/bazelisk
+          /tmp/bazelisk
 
       - name: Build binary
         run: |
-          bash -c "/tmp/bazelisk build --platforms=@io_bazel_rules_go//go/toolchain:${{ matrix.os }}_${{ matrix.cpu }} container/go/cmd/${{ matrix.application }}:${{ matrix.application }}"
+          /tmp/bazelisk build --platforms=@io_bazel_rules_go//go/toolchain:${{ matrix.os }}_${{ matrix.cpu }} container/go/cmd/${{ matrix.application }}:${{ matrix.application }}
           echo "Built!"
           ls -lR
 
