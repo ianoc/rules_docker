@@ -39,6 +39,8 @@ jobs:
       - name: Build binary
         run: |
           /tmp/bazelisk build --platforms=@io_bazel_rules_go//go/toolchain:${{ matrix.os }}_${{ matrix.cpu }} container/go/cmd/${{ matrix.application }}:${{ matrix.application }}
+          echo "Built!"
+          ls -lR
 
       - name: Upload binary as release asset
         uses: actions/upload-release-asset@v1
